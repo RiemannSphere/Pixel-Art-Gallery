@@ -1,0 +1,107 @@
+.background{
+    -fx-background-image: url("/res/back.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-pref-width: 600.0px;
+    -fx-pref-height: 400.0px;
+}
+
+.background-display{
+	-fx-background-image: url("/res/display.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-pref-width: 600.0px;
+    -fx-pref-height: 400.0px;
+}
+
+.background-bar{
+	-fx-fill: url("/res/bar.jpg");
+    -fx-arc-height: 0;
+    -fx-arc-width: 0;
+}
+
+.exit{
+    -fx-background-image: url("/res/exit.jpg");
+    -fx-background-repeat: space;
+    -fx-pref-width: 600.0px;
+    -fx-pref-height: 400.0px;
+}
+
+.help{
+    -fx-background-image: url("/res/help.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-pref-width: 600.0px;
+    -fx-pref-height: 400.0px;
+}
+
+.light-font{
+	-fx-text-fill: rgb(234.0,229.0,217.0);
+	-fx-font-family: "Trebuchet MS", Helvetica, sans-serif;
+	-fx-font-size: 34.0px;
+	-fx-background-color: rgb(9.0, 4.0, 44.0);
+}
+
+.dark-font{
+	-fx-text-fill: rgb(9.0, 4.0, 44.0);
+	-fx-font-family: "Trebuchet MS", Helvetica, sans-serif;
+	-fx-font-size: 34.0px;
+	-fx-background-color: rgb(234.0,229.0,217.0);
+}
+
+.form-font{
+	-fx-text-fill: rgb(9.0, 4.0, 44.0);
+	-fx-font-family: "Trebuchet MS", Helvetica, sans-serif;
+	-fx-font-size: 16.0px;
+}
+
+.warning-font {
+	-fx-text-fill: rgb(9.0, 4.0, 44.0);
+	-fx-font-family: "Trebuchet MS", Helvetica, sans-serif;
+	-fx-font-size: 11.0px;
+}
+
+.light-button{
+	-fx-text-fill: rgb(9.0, 4.0, 44.0);
+	-fx-font-family: "Trebuchet MS", Helvetica, sans-serif;
+	-fx-font-size: 18.0px;
+	-fx-font-weight: bold; 
+	-fx-background-color: rgb(234.0,229.0,217.0);
+	-fx-background-radius: none;
+	-fx-pref-width: 90.0px;
+	-fx-pref-height: 40.0px;
+	-fx-alignment: center;
+}
+
+.dark-button{
+	-fx-text-fill: rgb(234.0,229.0,217.0);
+	-fx-font-family: "Trebuchet MS";
+	-fx-font-size: 18.0px;
+	-fx-font-weight: bold; 
+	-fx-background-color: rgb(9.0, 4.0, 44.0);
+	-fx-background-radius: none;
+	-fx-pref-width: 90.0px;
+	-fx-pref-height: 40.0px;
+	-fx-alignment: center;
+}
+
+.light-small-button{
+	-fx-text-fill: rgb(9.0, 4.0, 44.0);
+	-fx-font-family: "Trebuchet MS", Helvetica, sans-serif;
+	-fx-font-size: 13.0px;
+	-fx-font-weight: bold; 
+	-fx-background-color: rgb(234.0,229.0,217.0);
+	-fx-background-radius: none;
+	-fx-pref-width: 80.0px;
+	-fx-pref-height: 20.0px;
+	-fx-alignment: center;
+}
+
+.crazy-button {
+	-fx-text-fill: rgb(63, 25, 144);
+	-fx-font-family: "Trebuchet MS";
+	-fx-font-size: 18.0px;
+	-fx-font-weight: bold; 
+	-fx-background-color: rgb(248, 207, 93);
+	-fx-background-radius: none;
+	-fx-pref-width: 100.0px;
+	-fx-pref-height: 50.0px;
+	-fx-alignment: center;	
+}
