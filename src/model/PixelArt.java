@@ -3,11 +3,18 @@ package model;
 public class PixelArt {
 
 	private Long id = null;
+	private String fileName;
 	private String name;
 	private String author;
 	private Double price;
 	private Shape shape;
 	
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
 	public String getName() {
 		return name;
 	}

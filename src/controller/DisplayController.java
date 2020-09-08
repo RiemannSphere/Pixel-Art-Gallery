@@ -1,14 +1,13 @@
 package controller;
 
+import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.function.Function;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,7 +15,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -27,8 +25,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.web.WebView;
-import javafx.util.Callback;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import model.Persistance;
 import model.PixelArt;
 import model.Shape;
@@ -47,6 +45,8 @@ public class DisplayController {
 	private Button helpBtn;
 	@FXML
 	private Button exitBtn;
+	@FXML
+	private Button viewBtn;
 
 	@FXML
 	private TableView<PixelArt> artTable;
@@ -207,13 +207,13 @@ public class DisplayController {
 	@FXML
 	private void onEdit() {
 		PixelArt selected = null;
-	    if (artTable.getSelectionModel().getSelectedItem() != null) {
-	        selected = artTable.getSelectionModel().getSelectedItem();
-	    }else {
-	    	System.err.println("[onEdit] : no artwork selected");
-	    	return;
-	    }
-		
+		if (artTable.getSelectionModel().getSelectedItem() != null) {
+			selected = artTable.getSelectionModel().getSelectedItem();
+		} else {
+			System.err.println("[onEdit] : no artwork selected");
+			return;
+		}
+
 		try {
 			FXMLLoader loader = new FXMLLoader(Main.class.getResource("/view/EditView.fxml"));
 			AnchorPane root = loader.load();
@@ -229,20 +229,35 @@ public class DisplayController {
 
 	@FXML
 	private void onView() {
-//		AnchorPane root = new AnchorPane();
-//		
-//		ImageView iv = new ImageView(image);
-//		
-//		root.getChildren().add(iv);
-//		Scene modal = new Scene(root);
-//		main.getPrimaryStage().setScene(modal);
+		PixelArt selected = null;
+		if (artTable.getSelectionModel().getSelectedItem() != null) {
+			selected = artTable.getSelectionModel().getSelectedItem();
+		} else {
+			System.err.println("[onView] : no artwork selected");
+			return;
+		}
+		
+		AnchorPane root = new AnchorPane();
+		
+		File file = new File(Persistance.DATA_DIR + selected.getFileName());
+        Image image = new Image(file.toURI().toString());
+        ImageView iv = new ImageView(image);
+		
+		
+		root.getChildren().add(iv);
+
+		Stage modalStage = new Stage();
+		modalStage.setScene(new Scene(root));
+		modalStage.initModality(Modality.APPLICATION_MODAL);
+//		modalStage.initOwner(applicationWindow);
+		modalStage.showAndWait();
 	}
-	
+
 	@FXML
 	private void onComment() {
-		
+
 	}
-	
+
 	private void initTableData() {
 		List<PixelArt> artData = Persistance.list();
 		data.addAll(artData);

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane styleClass="help" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HelpController">
+   <children>
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#goBackToMenu" prefWidth="78.0" styleClass="dark-button" stylesheets="@style.css" text="Menu" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" />
+      <WebView fx:id="helpContent" layoutX="50.0" layoutY="50.0" prefHeight="300.0" prefWidth="470.0" styleClass="help-cotent" stylesheets="@style.css" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="50.0" />
+   </children>
+</AnchorPane>

@@ -107,10 +107,14 @@ public class LoadController {
 
 		// choose file
 		File file = new FileChooser().showOpenDialog(main.getPrimaryStage());
+		
+		String fileName = file.getName();
+		System.out.println("File Name: " + fileName);
+		
 		Image img = new Image(file.toURI().toString());
 		ImageView imgv = new ImageView(img);
 		// save file to img
-		File save = new File(Persistance.DATA_DIR + file.getName());
+		File save = new File(Persistance.DATA_DIR + fileName);
 		try {
 			if (save.createNewFile()) {
 				infoLabel.setText("File created: " + save.getName());
@@ -121,11 +125,12 @@ public class LoadController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
+		
 		// save artwork info to data.dat
 
 		PixelArt artwork = new PixelArt();
 		artwork.setName(name);
+		artwork.setFileName(fileName);
 		artwork.setAuthor(author);
 		artwork.setPrice(price);
 		Shape shape = null;

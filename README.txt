@@ -5,6 +5,16 @@ author: Piotr Kołodziejski
 course: Java EE – produkcja oprogramowania
 project: Projekt przejściowy (PRP)
 
+/******** RUN ********
+Main class: src/controller/Main.java
+
+/******** Screenshots ********
+![Main Menu](screenshots/main_menu.png)
+![Table](screenshots/display.png)
+![Display Image](screenshots/display_image.png)
+![Load Image](screenshots/image.png)
+![Exit](screenshots/bye.png)
+
 /******** Description ********
 Program allows user to: 
 	+ SEARCH for pixel artworks

@@ -20,7 +20,7 @@ public class Persistance {
 	public static final String DATA = "data.dat";
 
 	private static enum IDX {
-		ID, NAME, AUTHOR, PRICE, SHAPE, SIZE, AREA
+		ID, FILE_NAME, NAME, AUTHOR, PRICE, SHAPE, SIZE, AREA
 	}
 
 	public static boolean save(PixelArt artwork) {
@@ -30,6 +30,7 @@ public class Persistance {
 			System.err.println("Persistance save(): cannot persist object with id being not null.");
 		}
 		data += getNextId() + PROP_SEP;
+		data += artwork.getFileName() + PROP_SEP;
 		data += artwork.getName() + PROP_SEP;
 		data += artwork.getAuthor() + PROP_SEP;
 		data += artwork.getPrice() + PROP_SEP;
@@ -78,6 +79,7 @@ public class Persistance {
 				if (Long.valueOf(lines.get(i).split(PROP_SEP)[IDX.ID.ordinal()]) == id) {
 					String data = "";
 					data += artwork.getId() + PROP_SEP;
+					data += artwork.getFileName() + PROP_SEP;
 					data += artwork.getName() + PROP_SEP;
 					data += artwork.getAuthor() + PROP_SEP;
 					data += artwork.getPrice() + PROP_SEP;
@@ -159,6 +161,7 @@ public class Persistance {
 			return null;
 		}
 		obj.setId(Long.valueOf(properties[IDX.ID.ordinal()]));
+		obj.setFileName(properties[IDX.FILE_NAME.ordinal()]);
 		obj.setName(properties[IDX.NAME.ordinal()]);
 		obj.setAuthor(properties[IDX.AUTHOR.ordinal()]);
 		obj.setPrice(Double.valueOf(properties[IDX.PRICE.ordinal()]));
